@@ -1,0 +1,60 @@
+package com.cobaltsteel.savingsapp;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView.FindListener;
+import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+public class PreferencesActivity extends Activity {
+	private Spinner spNumber;
+	private Spinner spRange;
+	private DatePicker dptargetDate;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_preferences);
+		
+		Integer [] arrayNumber = new Integer[] {
+	            1,2,3,4,5,6,7,8,9,10,11,12
+	        };
+		
+		String [] arrayRange = new String[] {
+	            "Day/s","Week/s","Month/s","Year/s",
+	        };
+	        spNumber = (Spinner) findViewById(R.id.spTargetNumber);
+	        spRange = (Spinner) findViewById(R.id.spTargetRange);
+	        ArrayAdapter<Integer> adaptNumber = new ArrayAdapter<Integer>( this,android.R.layout.simple_spinner_item,arrayNumber );
+	        ArrayAdapter<String> adaptRange = new ArrayAdapter<String>( this,android.R.layout.simple_spinner_item,arrayRange );
+	        spNumber.setAdapter(adaptNumber);
+	        spRange.setAdapter(adaptRange);
+	        //dptargetDate.setMinDate(System.currentTimeMillis() - 2000);
+	}
+	
+	public void onRadioButtonClicked(View v){
+		RadioButton rbRange = (RadioButton) findViewById(R.id.rbRange);
+		RadioButton rbDate = (RadioButton) findViewById(R.id.rbDate);
+		TextView lblTargetRange = (TextView) findViewById(R.id.lblTargetRange);
+		dptargetDate = (DatePicker) findViewById(R.id.dptargetDate);
+		
+		
+		if (rbRange.isChecked()){
+			spNumber.setVisibility(View.VISIBLE);
+			spRange.setVisibility(View.VISIBLE);
+			lblTargetRange.setVisibility(View.VISIBLE);
+			dptargetDate.setVisibility(View.GONE);
+		}
+		else{
+			spNumber.setClickable(false);
+			spRange.setClickable(false);
+			dptargetDate.setClickable(true);
+			dptargetDate.setVisibility(View.VISIBLE);
+		}
+	}
+}

@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.cobaltsteel.savingsapp.PreferencesActivity" >
+
+    <TextView
+        android:id="@+id/lblTargetMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Target Money: P" />
+
+    <EditText
+        android:id="@+id/txtTargetMoney"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblTargetMoney"
+        android:layout_toRightOf="@+id/lblTargetMoney"
+        android:inputType="number">
+        <requestFocus />
+    </EditText>
+    
+
+    <RadioGroup
+    android:id="@+id/rbgrpSetting"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@+id/txtTargetMoney">
+    <RadioButton android:id="@+id/rbDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Date"
+        android:onClick="onRadioButtonClicked"/>
+    <RadioButton android:id="@+id/rbRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Range"
+        android:onClick="onRadioButtonClicked"/>
+	</RadioGroup>
+
+   <DatePicker
+        android:id="@+id/dptargetDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rbgrpSetting"
+        android:layout_centerHorizontal="true" 
+        android:visibility="gone"/>
+    
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/lblTargetRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dptargetDate"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Target Range:"
+        android:visibility="gone" />
+	<Spinner
+        android:id="@+id/spTargetNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblTargetRange"
+        android:visibility="gone"/>
+    <Spinner
+        android:id="@+id/spTargetRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/spTargetNumber"
+        android:layout_toRightOf="@+id/spTargetNumber"
+        android:visibility="gone"/>
+
+</RelativeLayout>
