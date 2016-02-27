@@ -1,0 +1,11 @@
+package com.cobaltsteel.savingsapp;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class StartDialogActivity extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+	}
+}

@@ -1,0 +1,51 @@
+package com.cobaltsteel.savingsapp;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.DialogInterface.OnClickListener;
+import android.os.Bundle;
+
+public class StartDialogActivity extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage("Save P" + StaticData.dblSavingsPerDay);
+	      
+		alertDialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+	         @Override
+	         public void onClick(DialogInterface arg0, int arg1) {
+	            
+	         }
+	      });
+	      
+	      alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+	         @Override
+	         public void onClick(DialogInterface dialog, int which) {
+	            finish();
+	         }
+	      });
+			
+	      AlertDialog alertDialog = alertDialogBuilder.create();
+	      alertDialog.show();
+	}
+	
+	public void addOwedMoney(){
+		SharedPreferences sharedPref = getSharedPreferences(StaticData.prefName, MODE_PRIVATE);
+		SharedPreferences.Editor edit = sharedPref.edit();
+    	int intOwedMoney = sharedPref.getInt("OwedMoney", StaticData.dblSavingsPerDay);
+    	intOwedMoney+=intOwedMoney;
+    	edit.putInt("OwedMoney", intOwedMoney);
+    	edit.commit();
+	}
+	
+	public void addSavedMoney(){
+		SharedPreferences sharedPref = getSharedPreferences(StaticData.prefName, MODE_PRIVATE);
+		SharedPreferences.Editor edit = sharedPref.edit();
+		int intSavings = sharedPref.getInt("Savings", 0);
+		intSavings+=StaticData.dblSavingsPerDay;
+    	edit.commit();
+	}
+}

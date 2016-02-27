@@ -9,12 +9,12 @@
     tools:context="com.cobaltsteel.savingsapp.MainActivity" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtSavings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnStart"
         android:layout_centerHorizontal="true"
-        android:text="Savings App"
+        android:text="Total Savings: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -25,5 +25,25 @@
         android:layout_centerVertical="true"
         android:onClick="startApp"
         android:text="Enter" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnStart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:enabled="false"
+        android:onClick="cancelAlarm"
+        android:text="Press to Cancel Alarm"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Saving APP"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+"
 
 </RelativeLayout>

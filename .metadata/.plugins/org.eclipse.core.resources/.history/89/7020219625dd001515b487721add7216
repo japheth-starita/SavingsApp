@@ -1,0 +1,8 @@
+package com.cobaltsteel.savingsapp;
+
+public class StaticData {
+	public static double dblTargetMoney = 0;
+	public static String strRange = "";
+	public static int intNum = 0;
+	
+}
