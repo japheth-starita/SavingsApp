@@ -8,7 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.widget.Toast;
+=======
+>>>>>>> origin/master
 
 public class DialogActivity extends Activity {
 	
@@ -16,7 +19,10 @@ public class DialogActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		SharedPreferences sharedPref = getSharedPreferences(StaticData.prefName, MODE_PRIVATE);
+<<<<<<< HEAD
 		getAllPreferences();
+=======
+>>>>>>> origin/master
     	int intOwedMoney = sharedPref.getInt("OwedMoney", 0);
     	int intSavings = sharedPref.getInt("Savings", 0);
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -60,7 +66,10 @@ public class DialogActivity extends Activity {
     	edit.commit();
     	
     	if (intSavings >= sharedPref.getFloat("dblTargetMoney",  0)){
+<<<<<<< HEAD
     		Toast.makeText(getApplicationContext(), "Congratulations! You reached you goal!", Toast.LENGTH_LONG).show();
+=======
+>>>>>>> origin/master
     		cancelAlarm();
     	}
 	}

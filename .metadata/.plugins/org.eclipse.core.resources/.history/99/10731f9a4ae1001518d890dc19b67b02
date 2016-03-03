@@ -24,10 +24,18 @@ public class TimePrefActivity extends Activity {
 		setContentView(R.layout.activity_time_pref);
 		tpAlarmTime = (TimePicker) findViewById(R.id.tpAlarmTime);
 		GregorianCalendar currentCal = (GregorianCalendar) GregorianCalendar.getInstance();
+<<<<<<< HEAD
 		
 	}
 	
 	public void setAlarm(View v){
+=======
+		Toast.makeText(this, "Alarm Scheduled for " + currentCal.getTime(), Toast.LENGTH_LONG).show();
+	}
+	
+	public void setAlarm(View v){
+		/*
+>>>>>>> origin/master
 		int tpHour = tpAlarmTime.getCurrentHour();
 		int tpMinute = tpAlarmTime.getCurrentMinute();
 		GregorianCalendar currentCal = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -37,7 +45,11 @@ public class TimePrefActivity extends Activity {
 		alarmCal.set(GregorianCalendar.DATE, currentCal.get(GregorianCalendar.DATE));
 		alarmCal.set(GregorianCalendar.HOUR_OF_DAY, tpHour);
 		alarmCal.set(GregorianCalendar.MINUTE, tpMinute);
+<<<<<<< HEAD
 		alarmCal.add(GregorianCalendar.DATE, 1);
+=======
+		//alarmCal.add(GregorianCalendar.DATE, 1);
+>>>>>>> origin/master
 		long alarmTime = alarmCal.getTimeInMillis();
 		Toast.makeText(this, "Alarm Scheduled for " + alarmCal.getTime(), Toast.LENGTH_LONG).show();
 		
@@ -47,9 +59,33 @@ public class TimePrefActivity extends Activity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         //set the alarm for particular time
+<<<<<<< HEAD
         //alarmManager.set(AlarmManager.RTC_WAKEUP, alarmTime, alarmIntent);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarmTime, AlarmManager.INTERVAL_DAY, alarmIntent);
         //alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, alarmTime, AlarmManager.INTERVAL_DAY, alarmIntent);
+
+=======
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, alarmTime, alarmIntent);
+        //alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, alarmTime, AlarmManager.INTERVAL_DAY, alarmIntent);
+         */
+		 // time at which alarm will be scheduled here alarm is scheduled at 1 day from current time, 
+        // we fetch  the current time in milliseconds and added 1 day time
+        // i.e. 24*60*60*1000= 86,400,000   milliseconds in a day        
+        Long time = new GregorianCalendar().getTimeInMillis()+24*60*60*1000;
+
+        // create an Intent and set the class which will execute when Alarm triggers, here we have
+        // given AlarmReciever in the Intent, the onRecieve() method of this class will execute when
+        // alarm triggers and 
+        //we will write the code to send SMS inside onRecieve() method pf Alarmreciever class
+        Intent intentAlarm = new Intent(this, AlarmReceiver.class);
+   
+        // create the object
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        //set the alarm for particular time
+        alarmManager.set(AlarmManager.RTC_WAKEUP,time, PendingIntent.getBroadcast(this,852,  intentAlarm, 0));
+        Toast.makeText(this, "Alarm Scheduled for Tommrrow", Toast.LENGTH_LONG).show();
+>>>>>>> origin/master
         SharedPreferences.Editor edit = getSharedPreferences(StaticData.prefName, MODE_PRIVATE).edit();
     	edit.putBoolean("isthereAlarm", true);
     	edit.commit();

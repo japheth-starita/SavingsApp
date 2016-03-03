@@ -60,7 +60,10 @@ public class DialogActivity extends Activity {
     	edit.commit();
     	
     	if (intSavings >= sharedPref.getFloat("dblTargetMoney",  0)){
+<<<<<<< HEAD
     		Toast.makeText(getApplicationContext(), "Congratulations! You reached you goal!", Toast.LENGTH_LONG).show();
+=======
+>>>>>>> origin/master
     		cancelAlarm();
     	}
 	}
