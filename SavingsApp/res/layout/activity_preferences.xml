@@ -24,64 +24,35 @@
         android:inputType="number">
         <requestFocus />
     </EditText>
-    
 
-    <RadioGroup
-    android:id="@+id/rbgrpSetting"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_below="@+id/txtTargetMoney">
-    <RadioButton android:id="@+id/rbDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Custom Date"
-        android:onClick="onRadioButtonClicked"/>
-    <RadioButton android:id="@+id/rbRange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Range"
-        android:onClick="onRadioButtonClicked"/>
-	</RadioGroup>
-
-   <DatePicker
-        android:id="@+id/dptargetDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rbgrpSetting"
-        android:layout_centerHorizontal="true" 
-        android:visibility="gone"/>
     
     <TextView
         android:layout_marginTop="5dp"
         android:id="@+id/lblTargetRange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dptargetDate"
+        android:layout_below="@+id/txtTargetMoney"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Target Range:"
-        android:visibility="gone" />
+        android:text="Target Range:"/>
 	<Spinner
         android:id="@+id/spTargetNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblTargetRange"
-        android:visibility="gone"/>
+        android:layout_below="@+id/lblTargetRange"/>
     <Spinner
         android:id="@+id/spTargetRange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/spTargetNumber"
-        android:layout_toRightOf="@+id/spTargetNumber"
-        android:visibility="gone"/>
+        android:layout_toRightOf="@+id/spTargetNumber"/>
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Submit"
-        android:enabled="false"/>
+        android:onClick="submitPref"/>
 
 </RelativeLayout>

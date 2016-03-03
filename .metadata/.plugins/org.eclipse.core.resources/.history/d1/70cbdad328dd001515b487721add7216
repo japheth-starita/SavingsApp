@@ -1,0 +1,38 @@
+package com.cobaltsteel.savingsapp;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import android.util.Log;
+
+public class StaticData {
+	public static double dblTargetMoney = 0;
+	public static String strRange = "";
+	public static int intNum = 0;
+	
+	public static void computeMoney(){
+		GregorianCalendar currentCal = (GregorianCalendar) GregorianCalendar.getInstance();
+		GregorianCalendar TargetCal = (GregorianCalendar) GregorianCalendar.getInstance();
+		TargetCal.add(returnField(), intNum);
+		
+		Log.d("DaysDiff", ""+daysBetween(currentCal, TargetCal));
+	}
+	
+	public static int returnField(){
+		if(strRange.contains("Day")){
+			return GregorianCalendar.DAY_OF_YEAR;
+		}else if(strRange.contains("Week")){
+			return GregorianCalendar.WEEK_OF_YEAR;
+		}
+		else if(strRange.contains("Month")){
+			return GregorianCalendar.MONTH;
+		}
+		else{
+			return GregorianCalendar.DAY_OF_YEAR;
+		}
+	}
+	
+	public static int daysBetween(GregorianCalendar d1, GregorianCalendar d2){
+        return (int)( (d1.getTimeInMillis() - d2.getTimeInMillis()) / (1000 * 60 * 60 * 24));
+	}
+}

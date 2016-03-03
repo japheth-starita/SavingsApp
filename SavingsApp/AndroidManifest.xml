@@ -8,11 +8,13 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -25,6 +27,17 @@
         <activity
             android:name=".PreferencesActivity"
             android:label="@string/title_activity_preferences" >
+        </activity>
+        <activity
+            android:name=".TimePrefActivity"
+            android:label="@string/title_activity_time_pref" >
+        </activity>
+        <!-- Register the Alarm Receiver -->
+        <receiver android:name=".AlarmReceiver" />
+
+        <activity
+            android:name=".DialogActivity"
+            android:label="@string/title_activity_dialog" >
         </activity>
     </application>
 

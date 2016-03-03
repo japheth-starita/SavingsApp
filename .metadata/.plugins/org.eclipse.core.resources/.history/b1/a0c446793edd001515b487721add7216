@@ -1,0 +1,72 @@
+package com.cobaltsteel.savingsapp;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+
+public class StartDialogActivity extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		SharedPreferences sharedPref = getSharedPreferences(StaticData.prefName, MODE_PRIVATE);
+    	int intOwedMoney = sharedPref.getInt("OwedMoney", 0);
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage("Save P" + StaticData.dblSavingsPerDay + intOwedMoney);
+	      
+		alertDialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+	         @Override
+	         public void onClick(DialogInterface arg0, int arg1) {
+	            addSavedMoney();
+	            finish();
+	         }
+	      });
+	      
+	      alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+	         @Override
+	         public void onClick(DialogInterface dialog, int which) {
+	        	addOwedMoney();
+	            finish();
+	         }
+	      });
+			
+	      AlertDialog alertDialog = alertDialogBuilder.create();
+	      alertDialog.show();
+	}
+	
+	public void addOwedMoney(){
+		SharedPreferences sharedPref = getSharedPreferences(StaticData.prefName, MODE_PRIVATE);
+		SharedPreferences.Editor edit = sharedPref.edit();
+    	int intOwedMoney = sharedPref.getInt("OwedMoney", 0);
+    	intOwedMoney+=intOwedMoney;
+    	edit.putInt("OwedMoney", intOwedMoney);
+    	edit.commit();
+	}
+	
+	public void addSavedMoney(){
+		SharedPreferences sharedPref = getSharedPreferences(StaticData.prefName, MODE_PRIVATE);
+		SharedPreferences.Editor edit = sharedPref.edit();
+		int intSavings = sharedPref.getInt("Savings", 0);
+		intSavings+=StaticData.dblSavingsPerDay;
+		edit.putInt("Savings", intSavings);
+    	edit.commit();
+	}
+	
+	public void getAllPreferences(){
+		StaticData.dblTargetMoney = money;
+		StaticData.intNum = num;
+		StaticData.strRange = ran;
+		Intent intent = new Intent(getApplicationContext(), TimePrefActivity.class);
+		StaticData.computeMoney();
+		
+		//StorePreferenceFirst
+		
+		SharedPreferences sharedPref = getSharedPreferences(StaticData.prefName, MODE_PRIVATE);
+		StaticData.dblTargetMoney = sharedPref.getFloat("dblTargetMoney",  0);
+		StaticData.intNum = sharedPref.getInt("intNum", 0);
+		StaticData.strRange = sharedPref.getString("strRange", "");
+		sharedPref.getInt("SavingsPerDay", 0);
+	}
+}
