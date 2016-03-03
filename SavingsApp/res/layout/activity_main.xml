@@ -28,10 +28,18 @@
 
     <Button
         android:id="@+id/btnStop"
+<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnStart"
         android:layout_centerHorizontal="true"
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnStart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+>>>>>>> origin/master
         android:enabled="false"
         android:onClick="cancelAlarm"
         android:text="Press to Cancel Alarm"/>
@@ -43,5 +51,9 @@
         android:layout_alignParentTop="true"
         android:text="Saving APP"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+<<<<<<< HEAD
+=======
+"
+>>>>>>> origin/master
 
 </RelativeLayout>

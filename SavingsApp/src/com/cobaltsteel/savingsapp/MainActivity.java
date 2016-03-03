@@ -47,7 +47,11 @@ public class MainActivity extends Activity {
     	PendingIntent senderstop = PendingIntent.getBroadcast(this,
     	            StaticData.code, intentstop, 0);
     	AlarmManager alarmManagerstop = (AlarmManager) getSystemService(ALARM_SERVICE);
+<<<<<<< HEAD
     	txtSavings.setText(txtSavings.getText().toString() + "0");
+=======
+
+>>>>>>> origin/master
     	alarmManagerstop.cancel(senderstop);
     	SharedPreferences.Editor edit = sharedPref.edit();
     	edit.putBoolean("isthereAlarm", false);

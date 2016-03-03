@@ -25,7 +25,11 @@
 
     <Button
         android:id="@+id/btnSubmitAlarm"
+<<<<<<< HEAD
         android:layout_width="match_parent"
+=======
+        android:layout_width="wrap_content"
+>>>>>>> origin/master
         android:layout_height="wrap_content"
         android:layout_below="@+id/tpAlarmTime"
         android:layout_centerHorizontal="true"

@@ -15,6 +15,10 @@
 <fullyQualifiedTypeName name="com.cobaltsteel.savingsapp.AlarmReceiver"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="com.cobaltsteel.savingsapp.R.id"/>
+<<<<<<< HEAD
+=======
+<fullyQualifiedTypeName name="android.app.AlarmManager"/>
+>>>>>>> origin/master
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.content.BroadcastReceiver"/>
 <fullyQualifiedTypeName name="android.app.Activity"/>
@@ -28,10 +32,17 @@
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.app.PendingIntent"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
+<<<<<<< HEAD
+=======
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+>>>>>>> origin/master
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="com.cobaltsteel.savingsapp.StartDialogActivity"/>
 <fullyQualifiedTypeName name="android.os.PowerManager"/>
 <fullyQualifiedTypeName name="android.os.PowerManager.WakeLock"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="android.app.AlarmManager"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
+=======
+>>>>>>> origin/master
 </qualifiedTypeNameHistroy>
